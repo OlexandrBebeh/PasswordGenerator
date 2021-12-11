@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mi6ZdAgqx/MerKidrpGYlaYe+TsyP5D/cg1gCeoGxirj3LjKWv0igTrmd74MoumaTnQxrZLDdiL9+rafvIAVag==",
+  "dgSpecHash": "XreLt/4VtMCU8RCJJa3siCLhnZqfGVDfv+IYfi2d1oyouQ0R3bQfogsydwcyDjALO5mdQyfycNaZmEc3+d/83Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\RiderProjects\\PasswordGenerator\\PasswordGenerator\\PasswordGenerator.csproj",
+  "projectFilePath": "C:\\Projects\\KPI\\passwords\\PasswordGenerator\\PasswordGenerator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\PC\\.nuget\\packages\\libsodium\\1.0.18.1\\libsodium.1.0.18.1.nupkg.sha512"
+    "C:\\Users\\maher\\.nuget\\packages\\libsodium\\1.0.18.1\\libsodium.1.0.18.1.nupkg.sha512"
   ],
   "logs": []
 }

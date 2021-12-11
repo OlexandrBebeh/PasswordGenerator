@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net5.0": {
       "libsodium/1.0.18.1": {
         "type": "package",
         "runtimeTargets": {
@@ -61,34 +61,35 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
+    "net5.0": [
       "libsodium >= 1.0.18.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\maher\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\RiderProjects\\PasswordGenerator\\PasswordGenerator\\PasswordGenerator.csproj",
+      "projectUniqueName": "C:\\Projects\\KPI\\passwords\\PasswordGenerator\\PasswordGenerator.csproj",
       "projectName": "PasswordGenerator",
-      "projectPath": "C:\\Users\\PC\\RiderProjects\\PasswordGenerator\\PasswordGenerator\\PasswordGenerator.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\RiderProjects\\PasswordGenerator\\PasswordGenerator\\obj\\",
+      "projectPath": "C:\\Projects\\KPI\\passwords\\PasswordGenerator\\PasswordGenerator.csproj",
+      "packagesPath": "C:\\Users\\maher\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\KPI\\passwords\\PasswordGenerator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\maher\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net5.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/computer-graphics-course/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -99,8 +100,8 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "libsodium": {
             "target": "Package",
@@ -122,7 +123,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\PC\\.dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }
