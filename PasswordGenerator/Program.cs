@@ -20,16 +20,18 @@ class Program
 
         List<string> pwd = new();
         
-        pwd.AddRange(lst[0].GeneratePasswords(70000));
+        pwd.AddRange(lst[0].GeneratePasswords(10000));
         pwd.AddRange(lst[1].GeneratePasswords(10000));
-        pwd.AddRange(lst[2].GeneratePasswords(5000));
-        pwd.AddRange(lst[3].GeneratePasswords(15000));
+        pwd.AddRange(lst[2].GeneratePasswords(10000));
+        pwd.AddRange(lst[3].GeneratePasswords(10000));
         
         var rnd = new Random();
         var orderedEnumerable = pwd.OrderBy(item => rnd.Next());
 
         var shaHashes = new List<string>();
         var argonHashes = new List<string>();
+        var saltedHashes = new List<string>();
+
         var argon = new Argon2i();
         foreach (var p in orderedEnumerable)
         {
@@ -38,12 +40,16 @@ class Program
             var salt = argon.GenerateRandomSequence(16);
             var saltHex = BitConverter.ToString(salt).Replace("-", "");
             var hashedHex = BitConverter.ToString(argon.HashPassword(p, salt)).Replace("-", "");
-            argonHashes.Add($"{saltHex};{hashedHex}");
+            
+            argonHashes.Add($"{Encoding.Default.GetString(argon.HashPasswordWithSalt(p))}");
+            
+            saltedHashes.Add($"{hashedHex};{saltHex}");
         }
 
         File.WriteAllLines("passwords.csv", orderedEnumerable);
         File.WriteAllLines("hashes.csv", shaHashes);
-        File.WriteAllLines("saltedhashes.csv", argonHashes);
+        File.WriteAllLines("saltedhashes.csv", saltedHashes);
+        File.WriteAllLines("argonhashes.csv", argonHashes);
 
     }
 }

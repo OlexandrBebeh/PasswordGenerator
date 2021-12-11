@@ -11,7 +11,7 @@ namespace PasswordGenerator.Hashes
         private const int CryptoPwhashArgon2IdAlgArgon2Id13 = 2;
         private const long CryptoPwhashArgon2IdOpslimitSensitive = 4;
         private const int CryptoPwhashArgon2IdMemlimitSensitive = 65536;
-        private const int HashLength = 32;
+        private const int HashLength = 256;
 
         static Argon2i()
         {
@@ -51,6 +51,29 @@ namespace PasswordGenerator.Hashes
 
         }
         
+        public byte[] HashPasswordWithSalt(string password)
+        {
+            var hash = new byte[HashLength];
+            
+            var result = crypto_pwhash_str_alg(
+                hash, 
+                password, 
+                password.Length,
+                CryptoPwhashArgon2IdOpslimitSensitive, 
+                CryptoPwhashArgon2IdMemlimitSensitive,
+                CryptoPwhashArgon2IdAlgArgon2Id13);
+
+            if (result != 0)
+                throw new Exception("An unexpected error has occurred.");
+            
+            int lastIndex = Array.FindLastIndex(hash, b => b != 0);
+
+            Array.Resize(ref hash, lastIndex + 1);
+
+            return hash;
+
+        }
+        
         public byte[] GenerateRandomSequence(int length)
         {
             byte[] bytes = new byte[length];
@@ -59,6 +82,11 @@ namespace PasswordGenerator.Hashes
             
             return bytes;
         }
+        
+        [DllImport(Name, CallingConvention = CallingConvention.Cdecl)]
+        internal static extern int crypto_pwhash_str_alg(
+            byte[] buffer, string password, long passwordLength,
+            long opsLimit, int memLimit, int alg);
     }
     
 }
